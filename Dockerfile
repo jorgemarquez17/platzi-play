@@ -1,7 +1,7 @@
 
 # etapa 1: Build con Gradle 8.14.2 y JDK 21 (Compilacion)
 FROM gradle:8.14.2-jdk-21 AS build
-COPY --chown=gradle:gradle /app
+COPY --chown=gradle:gradle . /app
 WORKDIR /app
 RUN gradle bootJar --no-deamon
 
