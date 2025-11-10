@@ -3,10 +3,10 @@
 FROM gradle:8.14.2-jdk21 AS build
 COPY --chown=gradle:gradle . /app
 WORKDIR /app
-RUN gradle bootJar --no-deamon
+RUN gradle bootJar --no-daemon
 
 # Etapa 2 : runtime con jdk 21 (Ejecucion)
-FROM eclipse-temurin
+FROM eclipse-temurin:21-jdk
 WORKDIR  /app
 COPY --from=build /app/build/libs/*.jar platzi_play.jar
 EXPOSE 8080
