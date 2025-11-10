@@ -6,7 +6,7 @@ WORKDIR /app
 RUN gradle bootJar --no-deamon
 
 # Etapa 2 : runtime con jdk 21 (Ejecucion)
-FROM eclipse-temerin:21.jdk
+FROM eclipse-temurin
 WORKDIR  /app
 COPY --from=build /app/build/libs/*.jar platzi_play.jar
 EXPOSE 8080
